@@ -56,10 +56,10 @@ export default function Portfolio() {
   ];
 
   const photos = [
-    { title: 'Urban Landscapes', count: 24, cover: 'from-stone-400 to-stone-600' },
-    { title: 'Portrait Series', count: 18, cover: 'from-amber-400 to-orange-600' },
-    { title: 'Night Photography', count: 32, cover: 'from-slate-400 to-indigo-600' },
-    { title: 'Travel Stories', count: 45, cover: 'from-emerald-400 to-teal-600' }
+    { title: 'Japan-Kyoto-Tokyo', count: 24, image:'/IMG_1782.jpg' },
+    { title: 'California', count: 18, image: '/IMG_2769.jpg'},
+    { title: 'Grade Specific', count: 32, image:'mbay.jpg' },
+    { title: 'Travel Stories', count: 45, image:'/IMG_1936.jpg'}
   ];
 
   const blogPosts = [
@@ -160,7 +160,7 @@ export default function Portfolio() {
           <div className="py-20 animate-fade-in">
             <div className="space-y-3 mb-16">
               <h2 className="text-5xl font-light">Engineering</h2>
-              <p className="text-gray-600 text-lg font-light">List of Project </p>
+              <p className="text-gray-600 text-lg font-light">Lists of Projects</p>
             </div>
             <div className="space-y-12">
               {projects.map((project, idx) => (
@@ -208,7 +208,10 @@ export default function Portfolio() {
                   className="group cursor-pointer animate-fade-in"
                   style={{ animationDelay: `${idx * 0.1}s` }}
                 >
-                  <div className={`bg-gradient-to-br ${album.cover} aspect-[4/3] rounded-sm mb-4 group-hover:scale-[1.02] transition-all duration-500 opacity-80`} />
+                  {/* <div className={`bg-gradient-to-br ${album.cover} aspect-[4/3] rounded-sm mb-4 group-hover:scale-[1.02] transition-all duration-500 opacity-80`} /> */}
+                  <div 
+                      className="aspect-[4/3] rounded-sm mb-4 group-hover:scale-[1.02] transition-all duration-500 bg-cover bg-center"
+                      style={{ backgroundImage: `url(${album.image})` }}/>
                   <h3 className="text-xl font-light mb-1">{album.title}</h3>
                   <p className="text-gray-500 text-sm font-light">{album.count} photos</p>
                 </div>
