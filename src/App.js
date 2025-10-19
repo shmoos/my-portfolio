@@ -58,7 +58,7 @@ export default function Portfolio() {
   const photos = [
     { title: 'Japan-Kyoto-Tokyo', count: 24, image:'/IMG_1782.jpg' },
     { title: 'California', count: 18, image: '/IMG_2769.jpg'},
-    { title: 'Grade Specific', count: 32, image:'mbay.jpg' },
+    { title: 'Grade Specific', count: 32, image:'/mbay .jpg' },
     { title: 'Travel Stories', count: 45, image:'/IMG_1936.jpg'}
   ];
 
