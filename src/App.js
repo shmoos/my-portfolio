@@ -47,12 +47,12 @@ export default function Portfolio() {
       tags: ['React Native', 'Firebase', 'Stripe'],
       year: '2023'
     },
-    {
-      title: 'E-Commerce Platform',
-      description: 'Full-stack marketplace with real-time inventory management',
-      tags: ['Next.js', 'PostgreSQL', 'Stripe'],
-      year: '2023'
-    }
+    // {
+    //   title: 'E-Commerce Platform',
+    //   description: 'Full-stack marketplace with real-time inventory management',
+    //   tags: ['Next.js', 'PostgreSQL', 'Stripe'],
+    //   year: '2023'
+    // }
   ];
 
   const photos = [
@@ -160,7 +160,7 @@ export default function Portfolio() {
           <div className="py-20 animate-fade-in">
             <div className="space-y-3 mb-16">
               <h2 className="text-5xl font-light">Engineering</h2>
-              <p className="text-gray-600 text-lg font-light">Selected projects</p>
+              <p className="text-gray-600 text-lg font-light">List of Project </p>
             </div>
             <div className="space-y-12">
               {projects.map((project, idx) => (
