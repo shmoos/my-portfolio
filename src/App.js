@@ -107,7 +107,7 @@ export default function Portfolio() {
       <nav className="fixed top-0 left-0 right-0 bg-[#F5F5DC]/80 backdrop-blur-md border-b border-[#D2B48C]/30 z-50">
         <div className="max-w-5xl mx-auto px-8 py-5">
           <div className="flex items-center justify-between">
-            <div className="text-lg font-light tracking-wide">Yusuf Jabbar</div>
+            <div className="text-lg font-light tracking-wide">Yusuf </div>
             <div className="flex gap-8">
               {tabs.map((tab) => (
                 <button
