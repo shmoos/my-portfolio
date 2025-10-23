@@ -134,8 +134,8 @@ export default function Portfolio() {
           <div className="min-h-[80vh] flex items-center justify-center">
             <div className="max-w-2xl text-center space-y-8 animate-fade-in">
               {/* <img src={logo} className="App-logo mx-auto" alt="Custom Logo" /> */}
-              <h1 className="text-7xl font-light tracking-tight animate-float-slow">
-                Engineer & Creative
+              <h1 className="text-7xl font-light tracking-tight animate-float-fast">
+                Yusuf Jabbar
               </h1>
               <p className="text-xl text-gray-700 leading-relaxed font-light">
                 I build stuff and take photos. Welcome to my domain.
