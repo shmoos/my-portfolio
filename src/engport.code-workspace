@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../API"
+		},
+		{
+			"path": "../../../helloworld"
+		},
+		{
+			"path": "../../../pi"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"*.ino": "arduino",
+			"fstream": "cpp"
+		}
+	}
+}

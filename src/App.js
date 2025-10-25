@@ -4,6 +4,7 @@ import { Camera, Code, FileText, Mail, Github, Linkedin, Twitter, BookOpen } fro
 export default function Portfolio() {
   const [activeTab, setActiveTab] = useState('home');
   const [dots, setDots] = useState([]);
+  const [selectedBlog, setSelectedBlog] = useState(null);
 
   useEffect(() => {
     const newDots = [];
@@ -62,12 +63,20 @@ export default function Portfolio() {
     { title: 'Travel Stories', count: 45, image:'/IMG_1936.jpg'}
   ];
 
+  const detailImages = {
+    'Japan-Kyoto-Tokyo': Array.from({ length:24}, (_, i) => '/IMG_1782.jpg'), 
+    'California': Array.from({ length:18}, (_, i) => '/IMG_2769.jpg'),
+    'Grade Specific': Array.from({ length:32}, (_, i) => '/IMG_7744.jpg'),
+    'Travel Stories': Array.from({ length:45}, (_, i) => '/IMG_1936.jpg')
+  };
+
   const blogPosts = [
     {
-      title: 'Building Scalable Microservices',
-      date: 'Oct 15, 2024',
-      excerpt: 'Lessons learned from architecting distributed systems at scale',
+      title: 'Reflection of Summers',
+      date: 'Oct 25, 2025',
+      excerpt: 'Noticing what exactly? Its all below.',
       readTime: '8 min read'
+      
     },
     {
       title: 'The Art of Code Review',
