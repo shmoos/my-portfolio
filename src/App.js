@@ -213,7 +213,7 @@ What excites me most is how programming doesn't replace artistic vision – it a
         {activeTab === 'home' && (
           <div className="min-h-[80vh] flex items-center justify-center">
             <div className="max-w-2xl text-center space-y-8 animate-fade-in">
-              <h1 className="text-7xl font-light tracking-tight animate-float-fast">
+              <h1 className="text-7xl font-light tracking-tight animate-float-slow">
                 Yusuf Jabbar
               </h1>
               <p className="text-xl text-gray-700 leading-relaxed font-light">
