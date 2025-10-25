@@ -47,13 +47,7 @@ export default function Portfolio() {
       description: 'Created a secure peer-to-peer payment application',
       tags: ['React Native', 'Firebase', 'Stripe'],
       year: '2023'
-    },
-    // {
-    //   title: 'E-Commerce Platform',
-    //   description: 'Full-stack marketplace with real-time inventory management',
-    //   tags: ['Next.js', 'PostgreSQL', 'Stripe'],
-    //   year: '2023'
-    // }
+    }
   ];
 
   const photos = [
@@ -75,24 +69,98 @@ export default function Portfolio() {
       title: 'Reflection of Summers',
       date: 'Oct 25, 2025',
       excerpt: 'Noticing what exactly? Its all below.',
-      readTime: '8 min read'
-      
+      readTime: '8 min read',
+      content: `
+# Reflection of Summers
+
+I think the moment is all about where I am at that moment and exactly what am I doing.
+
+Its something where realistically its a moment where nothing should matter rather than the joy and beauty of the world around us.
+
+I realized this rather late in my opinion since I've observed that everyone around me has their own story that their writing while I thought I was going with the flow of the story of the people around me and to put it harsh, abiding by their expectations.
+
+Its off-putting to compose it but thats how the saying goes, "saying it how I see it".
+
+## Finding My Path
+
+The journey of self-discovery isn't always comfortable. Sometimes it means acknowledging that we've been living according to someone else's script.
+
+## Moving Forward
+
+Now I'm writing my own story, capturing my own moments, and finding beauty in the present rather than worrying about meeting expectations that were never mine to begin with.
+      `
     },
     {
       title: 'The Art of Code Review',
       date: 'Sep 28, 2024',
       excerpt: 'Best practices for giving and receiving constructive feedback',
-      readTime: '5 min read'
+      readTime: '5 min read',
+      content: `
+# The Art of Code Review
+
+Code reviews are more than just catching bugs – they're about knowledge sharing, maintaining quality, and building better teams.
+
+## Why Code Reviews Matter
+
+After years of both giving and receiving code reviews, I've learned that the way we approach them can make or break team culture.
+
+### For Reviewers
+
+**Be Kind, Be Specific**
+
+Instead of "This is bad," try "Have you considered using a map here? It might be more efficient for this use case."
+
+**Focus on Learning**
+
+Ask questions: "Can you help me understand why you chose this approach?" This opens dialogue rather than creating defensiveness.
+
+### For Authors
+
+**Don't Take It Personally**
+
+Remember, they're reviewing your code, not you. Every comment is an opportunity to learn.
+
+**Explain Your Reasoning**
+
+If you made a specific choice for a reason, explain it in the PR description or comments.
+
+## Building a Healthy Review Culture
+
+The best teams I've worked with treated code reviews as collaborative sessions, not gatekeeping exercises.
+      `
     },
     {
       title: 'Photography Meets Programming',
       date: 'Sep 10, 2024',
       excerpt: 'How computational photography is changing the creative landscape',
-      readTime: '6 min read'
+      readTime: '6 min read',
+      content: `
+# Photography Meets Programming
+
+As someone passionate about both photography and programming, I'm fascinated by how these worlds are colliding in exciting ways.
+
+## The Computational Revolution
+
+Modern smartphone cameras don't just capture light – they compute images. Every photo you take goes through sophisticated algorithms.
+
+## Building My Own Tools
+
+I started experimenting with computational photography by building my own tools.
+
+### Image Stacking for Astrophotography
+
+Using Python and OpenCV, I created a script that aligns multiple exposures of the night sky, stacks them to reduce noise, and brings out details invisible to the naked eye.
+
+### Custom Filters
+
+Instead of using presets, I learned to manipulate images programmatically by adjusting tone curves mathematically and creating custom color grading algorithms.
+
+## The Creative Potential
+
+What excites me most is how programming doesn't replace artistic vision – it amplifies it. You still need composition, timing, and an eye for light. But now you have new tools to realize your creative vision.
+      `
     }
   ];
-
-  // const logoUrl = "https://user-gen-media-assets.s3.amazonaws.com/gemini_images/020e5427-6f13-4f76-a96c-";
 
   return (
     <div className="min-h-screen bg-[#F5F5DC]  text-gray-800 relative overflow-hidden">
@@ -121,7 +189,10 @@ export default function Portfolio() {
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
+                  onClick={() => {
+                    setActiveTab(tab.id);
+                    setSelectedBlog(null);
+                  }}
                   className={`text-sm font-light transition-all duration-300 hover:scale-105 ${
                     activeTab === tab.id
                       ? 'text-gray-900 font-normal'
@@ -142,7 +213,6 @@ export default function Portfolio() {
         {activeTab === 'home' && (
           <div className="min-h-[80vh] flex items-center justify-center">
             <div className="max-w-2xl text-center space-y-8 animate-fade-in">
-              {/* <img src={logo} className="App-logo mx-auto" alt="Custom Logo" /> */}
               <h1 className="text-7xl font-light tracking-tight animate-float-fast">
                 Yusuf Jabbar
               </h1>
@@ -217,7 +287,6 @@ export default function Portfolio() {
                   className="group cursor-pointer animate-fade-in"
                   style={{ animationDelay: `${idx * 0.1}s` }}
                 >
-                  {/* <div className={`bg-gradient-to-br ${album.cover} aspect-[4/3] rounded-sm mb-4 group-hover:scale-[1.02] transition-all duration-500 opacity-80`} /> */}
                   <div 
                       className="aspect-[4/3] rounded-sm mb-4 group-hover:scale-[1.02] transition-all duration-500 bg-cover bg-center"
                       style={{ backgroundImage: `url(${album.image})` }}/>
@@ -229,8 +298,8 @@ export default function Portfolio() {
           </div>
         )}
 
-        {/* Blog */}
-        {activeTab === 'blog' && (
+        {/* Blog List */}
+        {activeTab === 'blog' && !selectedBlog && (
           <div className="py-20 animate-fade-in">
             <div className="space-y-3 mb-16">
               <h2 className="text-5xl font-light">Blog</h2>
@@ -242,6 +311,7 @@ export default function Portfolio() {
                   key={idx}
                   className="group cursor-pointer animate-slide-in"
                   style={{ animationDelay: `${idx * 0.1}s` }}
+                  onClick={() => setSelectedBlog(post)}
                 >
                   <div className="border-b border-[#D2B48C]/30 pb-8">
                     <div className="flex items-baseline justify-between mb-3">
@@ -261,6 +331,48 @@ export default function Portfolio() {
                 </div>
               ))}
             </div>
+          </div>
+        )}
+
+        {/* Blog Detail View */}
+        {activeTab === 'blog' && selectedBlog && (
+          <div className="py-20 animate-fade-in">
+            <button
+              onClick={() => setSelectedBlog(null)}
+              className="mb-8 text-gray-600 hover:text-gray-900 transition-colors duration-300 font-light"
+            >
+              ← Back to all posts
+            </button>
+            <article className="max-w-3xl">
+              <div className="mb-12">
+                <h1 className="text-5xl font-light mb-4">{selectedBlog.title}</h1>
+                <div className="flex gap-4 text-sm text-gray-500 font-light">
+                  <span>{selectedBlog.date}</span>
+                  <span>·</span>
+                  <span>{selectedBlog.readTime}</span>
+                </div>
+              </div>
+              <div className="prose prose-lg max-w-none">
+                {selectedBlog.content.split('\n').map((paragraph, idx) => {
+                  const trimmed = paragraph.trim();
+                  if (!trimmed) return null;
+                  
+                  if (trimmed.startsWith('# ')) {
+                    return <h1 key={idx} className="text-4xl font-light mt-12 mb-6 first:mt-0">{trimmed.slice(2)}</h1>;
+                  } else if (trimmed.startsWith('## ')) {
+                    return <h2 key={idx} className="text-3xl font-light mt-10 mb-4">{trimmed.slice(3)}</h2>;
+                  } else if (trimmed.startsWith('### ')) {
+                    return <h3 key={idx} className="text-2xl font-light mt-8 mb-3">{trimmed.slice(4)}</h3>;
+                  } else if (trimmed.startsWith('**') && trimmed.endsWith('**')) {
+                    return <p key={idx} className="font-normal text-gray-800 mt-6 mb-2">{trimmed.slice(2, -2)}</p>;
+                  } else if (trimmed.startsWith('- ')) {
+                    return <li key={idx} className="text-gray-700 leading-relaxed font-light ml-6 mb-2 list-disc">{trimmed.slice(2)}</li>;
+                  } else {
+                    return <p key={idx} className="text-gray-700 leading-relaxed font-light mb-4">{trimmed}</p>;
+                  }
+                })}
+              </div>
+            </article>
           </div>
         )}
 
